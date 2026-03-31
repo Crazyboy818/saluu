@@ -1,0 +1,67 @@
+EX. No. : 2
+DIFFIE-HELLMAN KEY EXCHANGE MECHANISM
+DATE:
+
+
+AIM
+
+To write a program that implements the Diffie–Hellman Key Exchange algorithm using HTML and JavaScript.
+
+ALGORITHM
+
+Step 1: Start the program.
+
+Step 2: Select a large prime number P and a primitive root G as public keys. These values are known to both users.
+Step 3: Alice selects a private key a. Step 4: Bob selects a private key b.
+Step 5: Alice computes her public key using the formula: A = Gᵃ mod P Step 6: Bob computes his public key using the formula: B = Gᵇ mod P Step 7: Alice and Bob exchange their public keys A and B.
+Step 8: Alice computes the shared secret key using: K₁ = Bᵃ mod P Step 9: Bob computes the shared secret key using: K₂ = Aᵇ mod P Step 10: Verify that K₁ = K₂, which confirms successful key exchange. Step 11: Stop the program.
+
+PROGRAM CODING
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+// This program calculates the key for two persons
+// using the Diffie-Hellman Key Exchange algorithm
+// Correct modular exponentiation function
+function power(a, b, p)
+{
+let result = 1; 
+a = a % p;
+while (b > 0) {
+if (b % 2 === 1) {
+result = (result * a) % p;
+}
+b = Math.floor(b / 2);
+a = (a * a) % p;
+}
+return result;
+}
+
+
+// Driver code
+var P, G, x, a, y, b, ka, kb;
+// Public keys P and G
+P = parseInt(window.prompt("Enter value of P (Prime number): ")); 
+document.write("The value of P: " + P + "<br>");
+G = parseInt(window.prompt("Enter value of G (Primitive root): "));
+document.write("The value of G: " + G + "<br>");
+// Alice private key
+a = parseInt(window.prompt("Enter private key for Alice: "));
+document.write("The private key a for Alice: " + a + "<br>");
+
+// Generate Alice public key 
+x = power(G, a, P);
+// Bob private key
+b = parseInt(window.prompt("Enter private key for Bob: ")); 
+document.write("The private key b for Bob: " + b + "<br>");
+// Generate Bob public key 
+y = power(G, b, P);
+// Generate secret keys
+ka = power(y, a, P);// Secret key for Alice
+kb = power(x, b, P);// Secret key for Bob
+document.write("Secret key for Alice is: " + ka + "<br>"); 
+document.write("Secret key for Bob is: " + kb + "<br>");
+</script>
+</body>
+</html>
