@@ -45,7 +45,7 @@ gpg: AES256 encrypted data
 
 Step 4: Verify Decrypted File Command:
 cat secret.txt
-Sample Output:
+Sample Output: 
 
 This is confidential data
 
