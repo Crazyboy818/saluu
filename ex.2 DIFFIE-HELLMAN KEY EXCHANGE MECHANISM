@@ -12,9 +12,15 @@ ALGORITHM
 Step 1: Start the program.
 
 Step 2: Select a large prime number P and a primitive root G as public keys. These values are known to both users.
-Step 3: Alice selects a private key a. Step 4: Bob selects a private key b.
-Step 5: Alice computes her public key using the formula: A = Gᵃ mod P Step 6: Bob computes his public key using the formula: B = Gᵇ mod P Step 7: Alice and Bob exchange their public keys A and B.
-Step 8: Alice computes the shared secret key using: K₁ = Bᵃ mod P Step 9: Bob computes the shared secret key using: K₂ = Aᵇ mod P Step 10: Verify that K₁ = K₂, which confirms successful key exchange. Step 11: Stop the program.
+Step 3: Alice selects a private key a.
+Step 4: Bob selects a private key b.
+Step 5: Alice computes her public key using the formula: A = Gᵃ mod P 
+Step 6: Bob computes his public key using the formula: B = Gᵇ mod P 
+Step7: Alice and Bob exchange their public keys A and B.
+Step 8: Alice computes the shared secret key using: K₁ = Bᵃ mod P
+Step 9: Bob computes the shared secret key using: K₂ = Aᵇ mod P
+Step 10: Verify that K₁ = K₂, which confirms successful key exchange. 
+Step 11: Stop the program.
 
 PROGRAM CODING
 <!DOCTYPE html>
