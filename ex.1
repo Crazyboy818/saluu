@@ -1,0 +1,162 @@
+Ex.No.: 1.A
+
+
+IMPLEMENT SUBSTITUTION TECHNIQUE USING CAESAR CIPHER
+Date:
+
+
+AIM
+
+To implement Caesar Cipher technique for encryption and decryption of a given text using a shift value in C.
+ALGORITHM
+Step 1: Start the program
+Step 2: Read the input values for text and shift value(1-25). Step 3: Read the user’s choice.
+Step 4: For Encrypting and Decrypting each character in the text:
+
+	•	Check if the character is an alphabet.
+	•	If uppercase, set base = 'A' or lowercase, set base = 'a'.
+	•	If choice = 1 (Encrypt):
+Replace character using
+(character − base + shift) % 26 + base
+	•	If choice = 2 (Decrypt):
+Replace character using
+(character − base − shift + 26) % 26 + base
+	•	If any choice value other than 1 and 2 then display “Invalid Choice” Step 5: Display the resulting encrypted and decrypted text.
+Sep 6: Stop the execution
+
+PROGRAM CODING
+#include <stdio.h> 
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+// Function to encrypt text using Caesar Cipher 
+void encrypt(char *text, int shift)
+{
+for (int i = 0; text[i] != '\0'; i++)
+{
+char ch = text[i]; if (isalpha(ch)) {
+char base = isupper(ch) ? 'A' : 'a'; 
+text[i] = (ch - base + shift) % 26 + base;
+}
+}
+}
+
+
+// Function to decrypt text using Caesar Cipher 
+void decrypt(char *text, int shift) {
+for (int i = 0; text[i] != '\0'; i++) { 
+char ch = text[i];
+if (isalpha(ch)) {
+char base = isupper(ch) ? 'A' : 'a';
+text[i] = (ch - base - shift + 26) % 26 + base;
+}
+}
+}
+int main( ) {
+char text[256]; int shift, choice;
+printf("=== Caesar Cipher in C ===\n"); 
+printf("Enter text (max 255 chars): ");
+
+scanf(“%s”,text);
+printf("Enter shift value (1-25): ");
+scanf("%d", &shift);
+while(1)
+{
+printf("Choose operation:\n1. Encrypt\n2. Decrypt\n Enter choice: ");
+scanf("%d", &choice);
+if (choice == 1)
+{
+encrypt(text, shift);
+printf("Encrypted text: %s\n", text);
+}
+else if (choice ==2)
+{
+decrypt(text, shift);
+printf("Decrypted text: %s\n", text);
+}
+else
+{
+printf("Invalid Choice");
+exit(1);
+}
+}
+return 0;
+}
+
+
+
+
+
+
+
+Ex.No.: 1.B
+
+IMPLEMENT TRANSPOSITION TECHNIQUE USING RAILFENCE ROW & COLUMN TRANSFORMATION
+Date:
+
+
+AIM
+To write a C program to implement the rail fence row & Column Transposition
+technique.
+ALGORITHM
+
+STEP 1: Start the program
+
+STEP 2: Read the input string.
+
+STEP 3: Find the length of the string.
+
+STEP 4: Encryption:
+
+	•	Take characters at even positions and store them first.
+	•	Then take characters at odd positions and append them.
+	•	Display the ciphertext. STEP 5: Decryption:
+	•	Divide the ciphertext into two halves.
+	•	Place first half characters in even positions.
+	•	Place second half characters in odd positions.
+	•	Form the original text. STEP 6: Display the decrypted text. STEP 7: Stop the execution
+
+PROGRAM CODING
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h> 
+void main()
+{
+int i,j,k,l;
+char a[20],c[20],d[20];
+printf("\n\t\t RAIL FENCE TECHNIQUE"); 
+printf("\n\n Enter the input string:");
+scanf("%s",a);
+l=strlen(a);
+for(i=0,j=0;i<l;i++)
+{
+if(i%2==0) 
+c[j++]=a[i];
+}
+for(i=0;i<l;i++)
+{
+if(i%2==1) 
+c[j++]=a[i];
+}
+printf("\nCipher text after applying rail fence :");
+printf("\n%s",c);
+if(l%2==0)
+k=(l/2);
+else
+k=(l/2)+1;
+for(i=0,j=0;i<k;i++)
+{
+d[j]=c[i]; 
+j=j+2;
+}
+
+for(i=k,j=1;i<l;i++)
+{
+d[j]=c[i];
+j=j+2;
+}
+d[l]='\0';
+printf("\n text after decryption:");
+printf("%s",d);
+}
