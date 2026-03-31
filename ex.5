@@ -1,0 +1,53 @@
+Ex.No: 5
+
+INSTALLATION OF ROOTKITS AND USING VARIOUS OPTIONS
+Date:
+
+
+AIM
+
+To install and use the rootkit tool in Kali Linux to detect rootkits and unauthorized access attempts using standard security tools such as chkrootkit, rkhunter, and Lynis
+
+ALGORITHM
+
+Step 1: Start Kali Linux in VMware
+Step 2: Install and run the Chkrootkit, tool to initiate a scan for potential rootkits present in the system.
+Step 3: Verify the successful execution of Chkrootkit and check whether any rootkits have been detected in the system
+Step 4: Install and Update rkhunter tool that reports file integrity status, hidden files, suspicious kernel modules, and configuration warnings.
+Step 5: Install Lynis tool and run lynis security audit that generates a detailed system audit report highlighting potential security weaknesses and malware indicators.
+Step 6: Stop the execution
+
+PROGRAM CODING ROOTKIT COMMANDS:
+chrootkit:
+Download chkrootkit source code cd /opt
+sudo wget ftp://ftp.chkrootkit.org/pub/seg/pac/chkrootkit.tar.gz
+
+Extract the tar file
+sudo tar -xvzf chkrootkit.tar.gz
+
+Move into the directory 
+cd chkrootkit-*
+Run chkrootkit (IMPORTANT) 
+sudo ./chkrootkit
+
+rkhunter
+
+Install required dependencies 
+sudo apt update
+sudo apt install wget perl -y
+Download rkhunter source
+cd /opt
+sudo wget https://downloads.sourceforge.net/project/rkhunter/rkhunter/1.4.6/rkhunter-1.4.6.tar.gz
+Extract the archive
+sudo tar -xvzf rkhunter-1.4.6.tar.gz
+cd rkhunter-1.4.6
+
+Install rkhunter manually 
+sudo ./installer.sh --install
+Update database
+sudo rkhunter --update
+Initialize baseline
+sudo rkhunter --propupd
+
+Run scan
+sudo rkhunter --check
