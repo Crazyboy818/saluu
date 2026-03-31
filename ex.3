@@ -1,0 +1,118 @@
+Ex.No. : 3 A
+DICTIONARY ATTACK
+DATE :
+
+AIM
+To implement a Dictionary Attack in Kali Linux using C.
+
+
+ALGORITHM
+Step 1: Start the program.
+Step 2: Declare a character array to store the actual password
+Step 3: Declare a two-dimensional character array to store the dictionary of passwords
+Step 4: Find the total number of passwords in the dictionary
+
+Step 5: Set a flag variable found = 0.
+Step 6 For each password in the dictionary:
+
+	•	Display the password being tried.
+	•	Compare it with the actual password.
+Step 7: If a match is found:
+	•	Display “Password Cracked”.
+	•	Set found = 1
+	•	Print the matched password.
+	•	Terminate the loop.
+Step 8: If no match found in dictionary then display “Password not found in dictionary”.
+Step 9: Stop the program.
+
+PROGRAM CODING
+#include <stdio.h> 
+#include <string.h> 
+int main()
+{
+char actualPassword[] = "kali123";
+char dictionary[][20] = {
+"admin",
+"root",
+"toor",
+"kali",
+"kali123",
+"password",
+"123456"	};
+int size = sizeof(dictionary) / sizeof(dictionary[0]);
+int found = 0;
+printf("Starting Dictionary Attack (Linux)...\n\n"); 
+for(int i = 0; i < size; i++)
+{
+printf("Trying password: %s\n", dictionary[i]); 
+if(strcmp(actualPassword, dictionary[i]) == 0)
+{
+printf("\nPassword Cracked!\n"); 
+printf("Password is: %s\n", dictionary[i]); 
+found = 1;
+break;
+}
+}
+
+
+if(!found)
+printf("\nPassword not found in dictionary.\n"); return 0;
+}
+
+
+
+
+
+Ex.No. : 3 B
+
+BRUTE FORCE ATTACK
+DATE :
+
+AIM
+To demonstrate a Brute Force Attack in Linux using C.
+ALGORITHM
+Step 1: Start the program.
+Step 2: Declare a character array to store the actual password
+Step 3: Declare a character set containing lowercase alphabets (a to z).
+Step 4: Declare a character array to store the guessed password.
+Step 5: Generate all possible combinations of characters using nested loops.
+Step 6: For each generated combination:
+	•	Store the combination in the guess array.
+	•	Compare the guess with the actual password using strcmp().
+	•	Display the current guess
+Step 7: If a match is found:
+	•	Display “Password Found”.
+	•	Print the correct password.
+	•	Terminate the program.
+Step 8: If no match is found then display “Password not found”.
+Step 9: Stop the program.
+
+PROGRAM CODING:
+#include <stdio.h> 
+#include <string.h> 
+int main()
+{
+char actualPassword[] = "ab";
+char charset[] = "abcdefghijklmnopqrstuvwxyz"; 
+char guess[3];
+printf("Starting Brute Force Attack (Linux)...\n\n"); 
+for(int i = 0; i < 26; i++)
+{
+for(int j = 0; j < 26; j++)
+{
+guess[0] = charset[i];
+guess[1] = charset[j];
+guess[2] = '\0';
+printf("Trying: %s\n", guess);
+if(strcmp(guess, actualPassword) == 0)
+{
+printf("\nPassword Cracked!\n"); 
+printf("Password is: %s\n", guess); 
+return 0;
+}
+}
+}
+
+printf("\nPassword not found.\n"); 
+return 0;
+}
