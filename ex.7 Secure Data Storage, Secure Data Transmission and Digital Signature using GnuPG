@@ -12,10 +12,12 @@ STEP 1: Start Kali Linux in VMware.
 STEP 2: Secure Data Storage
 	•	Create a confidential file
 	•	Encrypt the file using symmetric encryption
-	•	Decrypt the file to retrieve original data STEP 3: Secure Data Transmission
+	•	Decrypt the file to retrieve original data 
+STEP 3: Secure Data Transmission
 	•	Generate public and private key pair
 	•	Encrypt data using receiver’s public key
-	•	Decrypt data using receiver’s private key STEP 4: Digital Signature
+	•	Decrypt data using receiver’s private key
+STEP 4: Digital Signature
 	•	Digitally sign a message using private key
 	•	Verify the digital signature using public key
 
