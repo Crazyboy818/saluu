@@ -1,0 +1,97 @@
+Ex.No:07
+
+Secure Data Storage, Secure Data Transmission and Digital Signature using GnuPG
+Date:
+
+
+AIM
+To demonstrate secure data storage, secure data transmission, and creation &
+verification of digital signatures using the GnuPG cryptographic tool. ALGORITHM
+STEP 1: Start Kali Linux in VMware.
+
+STEP 2: Secure Data Storage
+	•	Create a confidential file
+	•	Encrypt the file using symmetric encryption
+	•	Decrypt the file to retrieve original data STEP 3: Secure Data Transmission
+	•	Generate public and private key pair
+	•	Encrypt data using receiver’s public key
+	•	Decrypt data using receiver’s private key STEP 4: Digital Signature
+	•	Digitally sign a message using private key
+	•	Verify the digital signature using public key
+
+CODING:
+PART A – Secure Data Storage (Symmetric Encryption) Step 1: Create a File
+Command:
+nano secret.txt
+Content:
+This is confidential data
+
+Step 2: Encrypt the File Command:
+gpg -c secret.txt
+Sample Output:
+
+Enter passphrase: Repeat passphrase:
+Encrypted file created as:
+
+secret.txt.gpg
+
+Step 3: Decrypt the File Command:
+gpg secret.txt.gpg
+Sample Output:
+Enter passphrase:
+gpg: AES256 encrypted data
+
+Step 4: Verify Decrypted File Command:
+cat secret.txt
+Sample Output:
+
+This is confidential data
+
+PART B – Secure Data Transmission (Asymmetric Encryption) Step 1: Generate GPG Key Pair
+Command:
+gpg --full-generate-key
+Sample Output (Selections):
+Please select key type: RSA and RSA Key size: 2048
+Key created successfully
+
+Step 2: List Generated Keys Command:
+gpg --list-keys
+Sample Output:
+pub rsa2048 2026-01-31 [SC]
+uid Student <student@example.com>
+
+
+Step 3: Encrypt File Using Public Key Command:
+gpg -e -r "Student" secret.txt Sample Output: secret.txt.gpg created
+Step 4: Decrypt File Using Private Key Command:
+gpg -d secret.txt.gpg > decrypted.txt
+Sample Output:
+
+gpg: encrypted with 2048-bit RSA key
+
+
+Step 5: Verify Decrypted Data Command:
+cat decrypted.txt
+Sample Output:
+This is confidential data
+
+PART C – Digital Signature Creation & Verification Step 1: Create Message File
+Command:
+
+nano message.txt
+Content:
+
+This message is digitally signed
+
+Step 2: Create Digital Signature Command:
+gpg --sign message.txt
+Sample Output:
+Enter passphrase:
+message.txt.gpg created
+
+Step 3: Verify Digital Signature Command:
+gpg --verify message.txt.gpg
+Sample Output:
+
+Good signature from "Student <student@example.com>"
+
