@@ -10,7 +10,8 @@ AIM
 To implement Caesar Cipher technique for encryption and decryption of a given text using a shift value in C.
 ALGORITHM
 Step 1: Start the program
-Step 2: Read the input values for text and shift value(1-25). Step 3: Read the user’s choice.
+Step 2: Read the input values for text and shift value(1-25). 
+Step 3: Read the user’s choice.
 Step 4: For Encrypting and Decrypting each character in the text:
 
 	•	Check if the character is an alphabet.
@@ -21,7 +22,8 @@ Replace character using
 	•	If choice = 2 (Decrypt):
 Replace character using
 (character − base − shift + 26) % 26 + base
-	•	If any choice value other than 1 and 2 then display “Invalid Choice” Step 5: Display the resulting encrypted and decrypted text.
+	•	If any choice value other than 1 and 2 then display “Invalid Choice”
+Step 5: Display the resulting encrypted and decrypted text.
 Sep 6: Stop the execution
 
 PROGRAM CODING
@@ -111,11 +113,14 @@ STEP 4: Encryption:
 
 	•	Take characters at even positions and store them first.
 	•	Then take characters at odd positions and append them.
-	•	Display the ciphertext. STEP 5: Decryption:
+	•	Display the ciphertext.
+STEP 5: Decryption:
 	•	Divide the ciphertext into two halves.
 	•	Place first half characters in even positions.
 	•	Place second half characters in odd positions.
-	•	Form the original text. STEP 6: Display the decrypted text. STEP 7: Stop the execution
+	•	Form the original text.
+STEP 6: Display the decrypted text.
+STEP 7: Stop the execution
 
 PROGRAM CODING
 #include<stdio.h>
